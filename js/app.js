@@ -76,17 +76,27 @@ const displayData = (drinks) => {
                                     <p class="card-title">Alcoholic: ${drink.strAlcoholic?drink.strAlcoholic:'no'}</p>
                                     <p class="card-text">Glass: ${drink.strGlass?drink.strGlass:'no'} </p>
                                     <button type="button" class="btn btn-warning btn-sm rounded-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="getID(${drink.idDrink})">Read More</button>                                   
+                                    <button type="button" class="btn btn-warning btn-sm rounded-0 delete" >Delete</button>                                   
                                 </div>
                             </div>
                         </div>
                     </div>
             `
             drinkResult.appendChild(article);
+            // delete function add
+            const deleteButtons = document.getElementsByClassName('delete')
+            for (const del of deleteButtons) {
+                del.addEventListener('click', (e) => {
+                    console.log(e.target.parentNode.parentNode.parentNode.parentNode.parentNode.style.display = "none")
+                })
+            }
+
         });
     }
     pageLoad('none');
     postToggle('block')
 }
+const deleteButtons = document.getElementsByClassName('delete')
 
 // single article load
 const singleDataLoad = (viewData) => {
