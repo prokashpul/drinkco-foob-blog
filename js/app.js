@@ -35,7 +35,15 @@ const searchBtn = () => {
     }
     searchInput.value = '';
 }
+// error sms
+const errorMessage = () => {
+    const err = document.getElementById('error-message');
+    err.innerText = "";
+    err.innerText = `
+        Search result is not found !! 😒😒😒 try again..
+    `
 
+}
 
 // show display data
 
@@ -44,7 +52,11 @@ const displayData = (drinks) => {
     console.log(drinks)
     drinkResult.textContent = "";
     if (drinks.drinks === null || drinks.drinks === undefined) {
-        console.log("error")
+        errorMessage();
+        // reload after 5sec
+        setTimeout(function () {
+            location.reload();
+        }, 5000);
     } else {
         drinks.drinks.forEach(drink => {
             const article = document.createElement('article');
