@@ -1,9 +1,10 @@
 #spinner {
-    z-index: 999;
+    z-index: 9999;
     display: none;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     left: 50%;
+    top: 50%;
 }
 
 #spinner::after {
@@ -23,7 +24,7 @@
 }
 
 .col img {
-    height: 150px;
     width: 100%;
-    object-fit: cover;
+    height: 190px;
+    overflow: hidden;
 }
