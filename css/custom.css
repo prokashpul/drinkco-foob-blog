@@ -21,3 +21,9 @@
         transform: rotate(1turn);
     }
 }
+
+.col img {
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+}

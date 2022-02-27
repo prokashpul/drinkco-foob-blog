@@ -50,10 +50,10 @@ const displyData = (drinks) => {
             const article = document.createElement('article');
             article.classList.add('col');
             article.innerHTML = `
-            <div class="card border-warning  shadow">
+            <div class="card border-warning h-100  shadow">
                         <div class="row g-0">
                             <div class="col-md-5">
-                                <img src="${drink.strDrinkThumb?drink.strDrinkThumb:'no'}" class="img-fluid rounded-start h-100" alt="...">
+                                <img src="${drink.strDrinkThumb?drink.strDrinkThumb:'no'}" class=" rounded-start" alt="...">
                             </div>
                             <div class="col-md-7">
                                 <div class="card-body">
