@@ -1,5 +1,6 @@
 const loadDrinkApi = async (searchText) => {
     pageLoad('flex');
+    postToggle('none')
     const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php${searchText}`;
     fetch(url ? url : "error")
         .then(res => {
@@ -17,6 +18,9 @@ const loadDrinkApi = async (searchText) => {
 // spinner function
 const pageLoad = (toggle) => {
     document.getElementById('spinner').style.display = toggle;
+}
+const postToggle = (toggle) => {
+    document.getElementById('show-drinks').style.display = toggle;
 }
 
 window.addEventListener('load', () => {
@@ -49,7 +53,6 @@ const errorMessage = () => {
 
 const displayData = (drinks) => {
     const drinkResult = document.getElementById('single-post');
-    console.log(drinks)
     drinkResult.textContent = "";
     if (drinks.drinks === null || drinks.drinks === undefined) {
         errorMessage();
@@ -82,6 +85,7 @@ const displayData = (drinks) => {
         });
     }
     pageLoad('none');
+    postToggle('block')
 }
 
 // single article load
