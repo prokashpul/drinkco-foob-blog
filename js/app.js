@@ -1,17 +1,22 @@
 const loadCocktApi = async(searchText) => {
-    const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php${searchText}`;
-    fetch(url ? url : "error")
-        .then(res => {
-            if (res.status >= 200 && res.status <= 299) {
-                return res.json();
-            } else {
-                throw Error(res.statusText);
-            }
-        })
-        .then(data => displyData(data))
-        .catch(error => {
-            console.log(error)
-        })
+        pageLoad('flex');
+        const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php${searchText}`;
+        fetch(url ? url : "error")
+            .then(res => {
+                if (res.status >= 200 && res.status <= 299) {
+                    return res.json();
+                } else {
+                    throw Error(res.statusText);
+                }
+            })
+            .then(data => displyData(data))
+            .catch(error => {
+                console.log(error)
+            })
+    }
+    // spinner function
+const pageLoad = (toggle) => {
+    document.getElementById('spinner').style.display = toggle;
 }
 
 window.addEventListener('load', () => {
@@ -64,5 +69,5 @@ const displyData = (drinks) => {
             drinkResult.appendChild(article);
         });
     }
-
+    pageLoad('none');
 }

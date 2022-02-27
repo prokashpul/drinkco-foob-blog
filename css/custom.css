@@ -1,0 +1,23 @@
+#spinner {
+    z-index: 999;
+    display: none;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+}
+
+#spinner::after {
+    content: '';
+    height: 100px;
+    width: 100px;
+    border: 10px solid transparent;
+    border-top-color: #FFC107;
+    border-radius: 50%;
+    animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+    to {
+        transform: rotate(1turn);
+    }
+}
