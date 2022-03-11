@@ -26,7 +26,17 @@ const postToggle = (toggle) => {
 window.addEventListener('load', () => {
     loadDrinkApi('?s=');
 })
-
+// search button enter press
+const clickEnter = () => {
+    const searchButton = document.getElementById('search-btn');
+    const searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === "Enter") {
+            searchButton.click();
+        }
+    })
+}
+clickEnter()
 const searchBtn = () => {
     const searchInput = document.getElementById('search-input');
     const inputValue = searchInput.value;
@@ -46,7 +56,6 @@ const errorMessage = () => {
     err.innerText = `
         Search result is not found !! 😒😒😒 try again..
     `
-
 }
 
 // show display data
